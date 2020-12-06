@@ -1,0 +1,28 @@
+html, body {
+    font-family: 'Noto Sans', sans-serif;
+    color: #fcfcfc;
+    background-color: #2a2b30;
+}
+
+h1 {
+    color: #ffee00;
+}
+
+li {
+    cursor: pointer;
+    width: fit-content;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+#enter {
+    background-color: #1594a5;
+    border-radius: 5px;
+}
+
+.remove {
+    background-color: #e83737;
+    border-radius: 5px;
+}
