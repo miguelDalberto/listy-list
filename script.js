@@ -1,35 +1,30 @@
-var button = document.getElementById("enter");
-var input = document.getElementById("userinput");
-var ul = document.querySelector("ul");
-var all_li = document.querySelectorAll("li");
-var all_remove = document.getElementsByClassName("remove");
+const button = document.getElementById("enter");
+const input = document.getElementById("userinput");
+const ul = document.querySelector("ul");
+const all_li = document.querySelectorAll("li");
+const all_remove = document.getElementsByClassName("remove");
 
-function insertItemOnList(item) {  //function: adds the input to the list with a removeButton and a .toggle("done")
-    var li = document.createElement("li");
-    var newButton = document.createElement("button");
+function insertItemOnList() {  //function: adds the input to the list with a removeButton and a .toggle("done")
+    if(input.value.length === 0)return;
+
+    const li = document.createElement("li");
+    const newButton = document.createElement("button");
+
     newButton.innerText = "🗑";
     newButton.classList.add("remove");
-    li.appendChild(document.createTextNode(item + " "));
+    li.appendChild(document.createTextNode(input.value + " "));
     ul.appendChild(li);
     li.appendChild(newButton);
 
     li.addEventListener("click", function(event){
         event.target.classList.toggle("done");
     })
-    
     newButton.addEventListener("click", function(event){
         ul.removeChild(event.target.parentElement);
     })
+    
+    input.value = "";
 }
 
-button.addEventListener("click", function(){ //event: button click and adds item
-    if(input.value.length === 0)return;
-    insertItemOnList(input.value);
-    input.value = "";
-})
-
-input.addEventListener("keypress", function(event){ //event: enter press and adds item
-    if(input.value.length === 0 || event.keyCode !== 13)return;
-    insertItemOnList(input.value);
-    input.value = "";
-})
+button.addEventListener("click", insertItemOnList) //event: button click adds item
+input.addEventListener("keypress", insertItemOnList) //event: enter press adds item
