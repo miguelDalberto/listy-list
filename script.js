@@ -27,4 +27,7 @@ function insertItemOnList() {  //function: adds the input to the list with a rem
 }
 
 button.addEventListener("click", insertItemOnList) //event: button click adds item
-input.addEventListener("keypress", insertItemOnList) //event: enter press adds item
+input.addEventListener("keypress", function(){ //event: enter press adds item
+    if(event.keyCode !== 13)return;
+    insertItemOnList();
+}) 
