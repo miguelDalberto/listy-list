@@ -26,14 +26,18 @@ footer {
   padding: 16px 0;
 }
 
-h1 {
-  font-size: 3em;
-  margin-bottom: 16px;
+header {
   margin-top: 16px;
   margin-bottom: 48px;
   text-align: center;
 }
 
+h1 {
+  font-size: 3em;
+  margin-bottom: 16px;
+}
+
 a {
   color: #1abbaa
 }
+
